@@ -1,66 +1,22 @@
-## Foundry
+https://github.com/foundry-rs/foundry/issues/6875 repro
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+`forge coverage`
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```
+| File             | % Lines       | % Statements  | % Branches    | % Funcs       |
+|------------------|---------------|---------------|---------------|---------------|
+| src/Counter.sol  | 100.00% (2/2) | 100.00% (2/2) | 100.00% (0/0) | 100.00% (2/2) |
+| src/Counter1.sol | 0.00% (0/2)   | 0.00% (0/2)   | 100.00% (0/0) | 0.00% (0/2)   |
+| Total            | 50.00% (2/4)  | 50.00% (2/4)  | 100.00% (0/0) | 50.00% (2/4)  |
 ```
 
-### Test
-
-```shell
-$ forge test
+If adding one more fn to `Counter1.sol`:
+```
+| File             | % Lines       | % Statements  | % Branches    | % Funcs       |
+|------------------|---------------|---------------|---------------|---------------|
+| src/Counter.sol  | 66.67% (2/3)  | 66.67% (2/3)  | 100.00% (0/0) | 66.67% (2/3)  |
+| src/Counter1.sol | 100.00% (2/2) | 100.00% (2/2) | 100.00% (0/0) | 100.00% (2/2) |
+| Total            | 80.00% (4/5)  | 80.00% (4/5)  | 100.00% (0/0) | 80.00% (4/5)  |
 ```
 
-### Format
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
